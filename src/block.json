@@ -4,8 +4,8 @@
 	"name": "create-block/giveaway-plugin",
 	"version": "0.1.0",
 	"title": "Giveaway Plugin",
-	"category": "widgets",
-	"icon": "smiley",
+	"category": "common",
+	"icon": "awards",
 	"description": "Example static block scaffolded with Create Block tool.",
 	"supports": {
 		"html": false

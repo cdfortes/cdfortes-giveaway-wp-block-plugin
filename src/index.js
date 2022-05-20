@@ -35,3 +35,10 @@ registerBlockType( 'create-block/giveaway-plugin', {
 	 */
 	save,
 } );
+
+/**
+ * Child blocks
+ */
+ import { metadata, name, settings } from './child-blocks/social-row';
+
+ registerBlockType({ name, ...metadata }, settings);

@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -24,11 +24,8 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save() {
 	return (
-		<p { ...useBlockProps.save() }>
-			{ __(
-				'Giveaway Plugin – hello from the saved content!',
-				'giveaway-plugin'
-			) }
-		</p>
+		<div {...useBlockProps}>
+			<InnerBlocks.Content />
+		</div>
 	);
 }

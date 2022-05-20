@@ -2,6 +2,124 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/child-blocks/social-row.js":
+/*!****************************************!*\
+  !*** ./src/child-blocks/social-row.js ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "metadata": function() { return /* reexport default export from named module */ _social_row_block_json__WEBPACK_IMPORTED_MODULE_3__; },
+/* harmony export */   "name": function() { return /* binding */ name; },
+/* harmony export */   "settings": function() { return /* binding */ settings; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _social_row_block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./social-row-block.json */ "./src/child-blocks/social-row-block.json");
+
+
+
+
+const {
+  name
+} = _social_row_block_json__WEBPACK_IMPORTED_MODULE_3__;
+
+const settings = {
+  icon: "smiley",
+  attributes: {
+    accountType: {
+      type: "string",
+      default: "twitter"
+    },
+    twitter: {
+      default: {
+        text: "",
+        account: ""
+      }
+    },
+    tweet: {
+      default: {
+        text: "",
+        message: "",
+        url: ""
+      }
+    },
+    youtube: {
+      default: {
+        text: "",
+        url: ""
+      }
+    }
+  },
+
+  edit(_ref) {
+    let {
+      attributes,
+      setAttributes
+    } = _ref;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      style: {
+        marginBottom: "40px"
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RadioControl, {
+      label: "Social Media",
+      help: "The type of social media to use",
+      selected: attributes.accountType,
+      options: [{
+        label: "Follow on Twitter",
+        value: "twitter"
+      }, {
+        label: "Share a Tweet",
+        value: "tweet"
+      }, {
+        label: "Subscribe on YouTube",
+        value: "youtube"
+      }],
+      onChange: value => setAttributes({
+        accountType: value
+      })
+    })))), attributes.accountType == "twitter" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dashicon, {
+      icon: "twitter"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Follow me on Twitter",
+      value: attributes.twitter.text,
+      onChange: value => {
+        setAttributes({
+          twitter: { ...attributes.twitter,
+            text: value
+          }
+        });
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Your Twitter account",
+      value: attributes.twitter.account,
+      onChange: value => {
+        setAttributes({
+          twitter: { ...attributes.twitter,
+            account: value
+          }
+        });
+      }
+    })), attributes.accountType == "tweet" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dashicon, {
+      icon: "twitter"
+    }), attributes.accountType == "youtube" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dashicon, {
+      icon: "youtube"
+    }));
+  },
+
+  save() {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps);
+  }
+
+};
+
+/***/ }),
+
 /***/ "./src/edit.js":
 /*!*********************!*\
   !*** ./src/edit.js ***!
@@ -52,8 +170,18 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
+const MY_TEMPLATE = [["core/image", {}], ["core/heading", {
+  placeholder: "Giveaway Title"
+}], ["core/paragraph", {
+  placeholder: "Giveaway description"
+}], ["create-block/giveaway-social-row"], ["core/button", {
+  placeholder: "Call to Action"
+}]];
 function Edit() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Giveaway Plugin – hello from the editor!', 'giveaway-plugin'));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+    template: MY_TEMPLATE,
+    allowedBlocks: ["create-block/giveaway-social-row"]
+  }));
 }
 
 /***/ }),
@@ -70,6 +198,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/save.js");
+/* harmony import */ var _child_blocks_social_row__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./child-blocks/social-row */ "./src/child-blocks/social-row.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -108,6 +237,15 @@ __webpack_require__.r(__webpack_exports__);
    */
   save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
+/**
+ * Child blocks
+ */
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)({
+  name: _child_blocks_social_row__WEBPACK_IMPORTED_MODULE_4__.name,
+  ..._child_blocks_social_row__WEBPACK_IMPORTED_MODULE_4__.metadata
+}, _child_blocks_social_row__WEBPACK_IMPORTED_MODULE_4__.settings);
 
 /***/ }),
 
@@ -154,7 +292,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function save() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Giveaway Plugin – hello from the saved content!', 'giveaway-plugin'));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null));
 }
 
 /***/ }),
@@ -203,6 +341,16 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
 /***/ "@wordpress/element":
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
@@ -220,6 +368,16 @@ module.exports = window["wp"]["element"];
 /***/ (function(module) {
 
 module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "./src/child-blocks/social-row-block.json":
+/*!************************************************!*\
+  !*** ./src/child-blocks/social-row-block.json ***!
+  \************************************************/
+/***/ (function(module) {
+
+module.exports = JSON.parse('{"name":"create-block/giveaway-social-row","title":"Social Row","category":"widgets","icon":"smiley","parent":["create-block/giveaway-plugin"],"description":"Add a social media row to the Giveaway Block","textdomain":"giveaway-plugin","support":{"html":false}}');
 
 /***/ })
 

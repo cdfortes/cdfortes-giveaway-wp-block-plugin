@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,10 +29,25 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
+
+
+
+ const MY_TEMPLATE = [
+	 ["core/image", {}],
+	 ["core/heading", { placeholder: "Giveaway Title" }],
+	 ["core/paragraph", { placeholder: "Giveaway description" }],
+	 ["create-block/giveaway-social-row"],
+	 ["core/button", { placeholder: "Call to Action" }],
+ ];
+ 
+
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Giveaway Plugin – hello from the editor!', 'giveaway-plugin' ) }
-		</p>
+		<div {...useBlockProps}>
+			<InnerBlocks
+				template={MY_TEMPLATE}
+				allowedBlocks={["create-block/giveaway-social-row"]}
+			/>
+		</div>
 	);
 }
